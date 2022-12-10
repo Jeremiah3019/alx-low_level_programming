@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+/**
+ * main - Entry point
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+	char c;
+
+	char d;
+
+	c = 'n';
+	d = 'n';
+	while
+		(c <= 'z') {
+			putchar(c);
+			c++;
+		}
+	while
+		(c <= 'z') {
+			putchar(d);
+			d++;
+		}
+	putchar('\n');
+	return (0);
+}
