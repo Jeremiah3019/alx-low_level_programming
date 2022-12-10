@@ -3,26 +3,28 @@
 #include <stdio.h>
 
 /**
- * main - Check last digit
+ * main - assign a random number to the variable n each time it is executed
+ * The string Last digit of n
  * Return: Always 0 (success)
  */
+
 int main(void)
 {
 	int n;
-	int l;
+	int lastn;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	l = n % 10;
-	if (l > 5)
+	lastn = n % 10;
+	if (lastn > 5)
 	{
-		printf("Last digit of %d is %d and is greater than 5\n", n, l);
-	} else if (l == 0)
+		printf("Last digit of %d is %d and is greater than 5\n", n, lastn);
+	} else if (lastn == 0)
 	{
-		printf("Last digit of %d is %d and is 0\n", n, l);
-	} else if (l < 6 && x != 0)
+		printf("Last digit of %d is %d and is 0\n", n, lastn);
+	} else if (lastn < 6 && x != 0)
 	{
-		printf("Last digit of %d is %d and is less than 6 nd not 0\n", n, l);
+		printf("Last digit of %d is %d and is less than 6 nd not 0\n", n, lastn);
 	}
 	return (0);
 }
