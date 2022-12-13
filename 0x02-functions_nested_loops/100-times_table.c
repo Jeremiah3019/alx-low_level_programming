@@ -32,7 +32,7 @@ void print_times_table(int n)
 				}
 				else if (c <= 99 && c >= 10)
 				{
-					_putchar((c 10) + '0');
+					_putchar((c / 10) + '0');
 				}
 				_putchar((c % 10) + '0');
 			}
