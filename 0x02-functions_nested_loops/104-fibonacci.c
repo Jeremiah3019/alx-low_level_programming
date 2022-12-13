@@ -28,8 +28,8 @@ int main(void)
 	aft2 = (aft % l);
 	for (a = 92; a < 99; ++a)
 	{
-		printf(", %lu", aft1 + (aft2 / 1));
-		printf("%lu. aft2 % l);
+		printf(", %lu", aft1 + (aft2 / l));
+		printf("%lu", aft2 % l);
 		aft1 = aft1 + bef1;
 		bef1 = aft1 - bef1;
 		aft2 = aft2 + bef2;
