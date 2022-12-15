@@ -2,7 +2,7 @@
 
 /**
  * print_most_numbers - print 0-9 with the exclusion of 2 and 4
- * Return: nothing
+ * Return: return nothing
  */
 void print_most_numbers(void)
 {
@@ -10,7 +10,7 @@ void print_most_numbers(void)
 
 	for (i = 48; i < 58; i++)
 	{
-		if ((i == 50) ||  (i == 5)2)
+		if ((i == 50) ||  (i == 52))
 		{
 			continue;
 		}
