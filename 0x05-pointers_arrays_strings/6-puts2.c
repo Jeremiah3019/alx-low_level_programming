@@ -1,7 +1,7 @@
 #inlude "main.h"
 
 /**
- * put2 - print a string followed by a new line
+ * puts2 - print a string followed by a new line
  * @str: pointer to string to print
  * Return: nothing
  */
