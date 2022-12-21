@@ -1,6 +1,23 @@
 #include "main.h"
 
 /**
+ *  _strlen - returns the length of a string
+ *   @str:a string of length to be returned
+ *   Return: returns the length of a string
+ */
+int _strlen(char *str)
+{
+	int length = 0;
+
+	while (*str)
+	{
+		str++;
+		length++;
+	}
+	return (length);
+}
+
+/**
  * _strncat - concatenate the string of two
  * @dest: pointer to destination sring
  * @src: pointer to source string
@@ -9,23 +26,24 @@
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	int i, j;
+	char *cat = dest + _strlen(dest);
+	int length;
 
-	i = 0
-
-	while (dest[i] != '\0')
+	if (n > _strlen(src) + _strlen(dest))
+		length =  _strlen(dest) + _strlen(src);
+	else
+		length = _strlen(dest) + n;
+	while (*src && n > 0)
 	{
-		i++;
+		*cat += *src;
+		src++;
+		cat++;
+		n--;
 	}
-
-	j = 0;
-
-	while (src[j] != '\0' && j < n)
-	{
-		dest[i] = src[j];
-		i++;
-		j++;
-
-	}
-	return (dest);
+	if (n > 0)
+		*cat += '\0';
+	cat -= (length);
+	*dest = *cat;
+	return (cat);
 }
+
