@@ -13,23 +13,23 @@
  */
 char *_strncat(char *dest, char *src, int n)
 {
-	char *cat = dest + _strlen(dest);
-	int length;
+	int i, j;
 
-	if (n > _strlen(src) + _strlen(dest))
-		length =  _strlen(dest) + _strlen(src);
-	else
-		length = _strlen(dest) + n;
-	while (*src && n > 0)
+	i = 0
+
+	while (dest[i] != '\0')
 	{
-		*cat += *src;
-		src++;
-		cat++;
-		n--;
+		i++;
 	}
-	if (n > 0)
-		*cat += '\0';
-	cat -= (length);
-	*dest = *cat;
-	return (cat);
+
+	j = 0;
+
+	while (src[j] != '\0' && j < n)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+
+	}
+	return (dest);
 }
