@@ -1,15 +1,11 @@
 #include "main.h"
 
 /**
- * _strncat - concatinate the values of two integers
- *
- * @dest: arg a
- *
- * @src: arg b
- *
- * @n: arg n
- *
- * Return: void
+ * _strncat - concatenate the string of two
+ * @dest: pointer to destination sring
+ * @src: pointer to source string
+ * @n: number of byte to be concatenated
+ * Return: pointer to destination string
  */
 char *_strncat(char *dest, char *src, int n)
 {
