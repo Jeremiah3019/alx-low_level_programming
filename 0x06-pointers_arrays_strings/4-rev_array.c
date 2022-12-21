@@ -1,6 +1,18 @@
 #include "main.h"
 
 /**
+ * swap_int - swaps the value of two integers
+ * @a: pointer a
+ * @b: pointer b
+ */
+void swap_int(int *a, int *b)
+{
+	*a = *b + *a;
+	*b = *a - *b;
+	*a = *a - *b;
+}
+
+/**
  * reverse_array - revereses an array
  * @a: pointer to array
  * @n: number of elements of an array
