@@ -5,7 +5,7 @@
  * @dest: destination pointer
  * @src: pointer to a string
  * Return: concatenate string
- * /
+ */
 char *_strcat(char *dest, char *src)
 {
 	char *cat = dest + _strlen(dest);
