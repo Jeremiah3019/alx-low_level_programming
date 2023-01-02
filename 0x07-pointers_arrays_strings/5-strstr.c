@@ -1,25 +1,31 @@
 #include "main.h"
 
 /**
- * _strpbrk - bytes
- * @s: pointer to char
- * @accept: pointer to char
- * Return: NULL
+ * _strstr - locates a substring
+ * @haystack: string to be searched
+ * @needle: substring to be found
+ * Return: pointer to substring or NULL If not found
  */
-char *_strpbrk(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
-	int i;
+	char *result = haystack, *fneedle = needle;
 
-	while (*s)
+	while (*haystack)
 	{
-		for (i = 0; accept[i]; i++)
+		while (*needle)
 		{
-			if (*s == accept[i])
+			if (*haystack++ != *needle++)
 			{
-				return (s);
+				break;
 			}
 		}
-		s++;
+		if (!*needle)
+		{
+			return (result);
+		}
+		needle = fneedle;
+		result++;
+		haystack = result;
 	}
-	return (NULL);
+	return (0);
 }
