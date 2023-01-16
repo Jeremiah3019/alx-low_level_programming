@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 /**
- *
  * struct dog - creates a new structure of dog
  * @name: struct member name
  * @owner: struct member owner
