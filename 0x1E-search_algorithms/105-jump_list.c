@@ -1,64 +1,45 @@
 #include "search_algos.h"
 
 /**
- * rec_search - searches for a value in an array of
- * integers using the Binary search algorithm
+ * jump_list - Searching for an algorithm in a sorted singly
+ *             linked list of integers using jump search.
+ * @list: A pointer to the  head of the linked list to search.
+ * @size: The number of nodes in the list.
+ * @value: The value to search for.
  *
+ * Return: If the value is not present or the head of the list is NULL, NULL.
+ *         Otherwise, a pointer to the first node where the value is located.
  *
- * @array: input array
- * @size: size of the array
- * @value: value to search in
- * Return: index of the number
+ * Description: Prints a value every time it is compared in the list.
+ *              Uses the square root of the list size as the jump step.
  */
-int rec_search(int *array, size_t size, int value)
+listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	size_t half = size / 2;
-	size_t i;
+	size_t step, step_size;
+	listint_t *node, *jump;
 
-	if (array == NULL || size == 0)
-		return (-1);
+	if (list == NULL || size == 0)
+		return (NULL);
 
-	printf("Searching in array");
-
-	for (i = 0; i < size; i++)
-		printf("%s %d", (i == 0) ? ":" : ",", array[i]);
-
-	printf("\n");
-
-	if (half && size % 2 == 0)
-		half--;
-
-	if (value == array[half])
+	step = 0;
+	step_size = sqrt(size);
+	for (node = jump = list; jump->index + 1 < size && jump->n < value;)
 	{
-		if (half > 0)
-			return (rec_search(array, half + 1, value));
-		return ((int)half);
+		node = jump;
+		for (step += step_size; jump->index < step; jump = jump->next)
+		{
+			if (jump->index + 1 == size)
+				break;
+		}
+		printf("Value checked at index [%ld] = [%d]\n", jump->index, jump->n);
 	}
 
-	if (value < array[half])
-		return (rec_search(array, half + 1, value));
+	printf("Value found between indexes [%ld] and [%ld]\n",
+			node->index, jump->index);
 
-	half++;
-	return (rec_search(array + half, size - half, value) + half);
-}
+	for (; node->index < jump->index && node->n < value; node = node->next)
+		printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
+	printf("Value checked at index [%ld] = [%d]\n", node->index, node->n);
 
-/**
- * advanced_binary - calls to rec_search to return
- * the index of the number
- *
- * @array: input array
- * @size: size of the array
- * @value: value to search in
- * Return: index of the number
- */
-int advanced_binary(int *array, size_t size, int value)
-{
-	int index;
-
-	index = rec_search(array, size, value);
-
-	if (index >= 0 && array[index] != value)
-		return (-1);
-
-	return (index);
+	return (node->n == value ? node : NULL);
 }
